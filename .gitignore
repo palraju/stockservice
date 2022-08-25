@@ -1,0 +1,5 @@
+/stock-rest/target/*
+/.idea/*
+/stock-persistent/target/*
+/stock-model/target/*
+/stock-service/target/*
