@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cognizant.stock</groupId>
-    <artifactId>stock-persistent</artifactId>
+    <artifactId>stock-model</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>stock-persistent</name>
-    <description>Stock Persistent Layer</description>
+    <name>stock-model</name>
+    <description>Stock Model</description>
     <parent>
         <groupId>com.cognizant.stock</groupId>
         <artifactId>stock-parent</artifactId>
@@ -22,12 +22,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.cognizant.stock</groupId>
-            <artifactId>stock-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
 
     </dependencies>
 </project>

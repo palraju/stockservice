@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    password: Tulika@113311
+    url: jdbc:postgresql://localhost:5432/rajupal
+    username: rajupal
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+        format_sql: true
+    show-sql: true

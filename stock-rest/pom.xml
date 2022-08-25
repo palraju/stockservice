@@ -22,6 +22,10 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.cognizant.stock</groupId>
+            <artifactId>stock-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
