@@ -8,4 +8,5 @@ public interface StockService {
     Stock findById(Integer stockId);
     Collection<Stock> findAll();
     Stock add (Stock stock);
+    void remove (Stock stock);
 }

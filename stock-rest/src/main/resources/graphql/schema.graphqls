@@ -1,0 +1,22 @@
+type Stock {
+    stockId: ID!,
+    scripName: String,
+    scripCode: String,
+    scripInceptionDate: String,
+    companyName: String
+}
+type Query {
+    getScripById(stockId:ID!):Stock
+    getAllScrip:[Stock]
+}
+
+type Mutation {
+    addScrip(stock: StockInput):Stock
+}
+
+input StockInput {
+   scripName: String,
+   scripCode: String,
+   scripInceptionDate: String,
+   companyName: String
+}

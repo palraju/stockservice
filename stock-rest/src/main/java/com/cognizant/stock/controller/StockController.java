@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class StockController {
 
+	private StockService stockService;
+
 	@Autowired
-	StockService stockService;
+	public void setStockService(StockService stockService) {
+		this.stockService = stockService;
+	}
 
 	@RequestMapping("/api/stock/find/{id}")
 	public Stock findById(@PathVariable Integer id) {

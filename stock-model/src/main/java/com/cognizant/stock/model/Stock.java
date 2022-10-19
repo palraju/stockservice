@@ -1,10 +1,16 @@
 package com.cognizant.stock.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Stock")
-public class Stock {
+@Getter
+@Setter
+public class Stock implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer stockId;
@@ -17,43 +23,4 @@ public class Stock {
 
 	private String companyName;
 
-	public String getScripName() {
-		return scripName;
-	}
-
-	public void setScripName(String scripName) {
-		this.scripName = scripName;
-	}
-
-	public String getScripCode() {
-		return scripCode;
-	}
-
-	public void setScripCode(String scripCode) {
-		this.scripCode = scripCode;
-	}
-
-	public String getScripInceptionDate() {
-		return scripInceptionDate;
-	}
-
-	public void setScripInceptionDate(String scripInceptionDate) {
-		this.scripInceptionDate = scripInceptionDate;
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public Integer getStockId() {
-		return stockId;
-	}
-
-	public void setStockId(Integer stockId) {
-		this.stockId = stockId;
-	}
 }

@@ -1,7 +1,8 @@
-package com.cognizant.stock.service;
+package com.cognizant.stock.service.impl;
 
 import com.cognizant.stock.model.Stock;
 import com.cognizant.stock.persistent.StockRepository;
+import com.cognizant.stock.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class StockServiceImpl implements StockService {
 		if(stockOptional.isPresent()) {
 			return stockOptional.get();
 		}
-		return null;
+		return new Stock ();
 	}
 
 	public Collection<Stock> findAll() {
@@ -31,7 +32,18 @@ public class StockServiceImpl implements StockService {
 		if(stock == null) {
 			new RuntimeException("Stock can not be empty");
 		}
-		stockRepository.save(stock);
-		return stock;
+		Stock savedStock = stockRepository.save(stock);
+		return savedStock;
+	}
+
+	@Override
+	public void remove(Stock stock) {
+		if(stock == null || stock.getStockId() == null) {
+			new RuntimeException("Stock or Stock Id is not provided");
+		}
+		Optional<Stock> stockOptional = stockRepository.findById(stock.getStockId());
+		if(stockOptional.isPresent()) {
+			stockRepository.delete(stockOptional.get());
+		}
 	}
 }

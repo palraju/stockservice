@@ -11,9 +11,4 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
         format_sql: true
     show-sql: true
-  graphql:
-    graphiql:
-      enabled: true
-    websocket:
-      path: /graphql
-    path: /graphql
+debug : true

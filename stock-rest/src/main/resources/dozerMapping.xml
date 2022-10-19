@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+      https://dozer.sourceforge.net/schema/beanmapping.xsd%22>" >
+
+    <mapping>
+        <class-a>com.cognizant.stock.model.Stock</class-a>
+        <class-b>com.cognizant.stock.model.StockInput</class-b>
+    </mapping>
+
+</mappings>
