@@ -4,6 +4,7 @@ import com.cognizant.stock.model.Stock;
 import com.cognizant.stock.persistent.StockRepository;
 import com.cognizant.stock.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -15,6 +16,7 @@ public class StockServiceImpl implements StockService {
 
 	@Autowired
 	StockRepository stockRepository;
+
 
 	public Stock findById(Integer stockId) {
 		Optional<Stock> stockOptional = stockRepository.findById(stockId);

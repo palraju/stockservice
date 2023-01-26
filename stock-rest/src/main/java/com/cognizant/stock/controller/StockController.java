@@ -5,6 +5,7 @@ import com.cognizant.stock.model.Stock;
 import com.cognizant.stock.model.StockServiceResponse;
 import com.cognizant.stock.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -18,7 +19,9 @@ public class StockController {
 		this.stockService = stockService;
 	}
 
+
 	@RequestMapping("/api/stock/find/{id}")
+	@Cacheable(value= "stocks", key="#id")
 	public Stock findById(@PathVariable Integer id) {
 		return stockService.findById(id);
 	}

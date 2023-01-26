@@ -36,8 +36,8 @@ public class GraphqlStockController {
     }
 
     @MutationMapping
-    public Stock addScrip (@Argument StockInput stockInput) {
-        Stock stock = dozerBeanMapper.map(stockInput, Stock.class);
-        return stockService.add(stock);
+    public Stock addScrip (@Argument StockInput stock) {
+        Stock stockOutput = dozerBeanMapper.map(stock, Stock.class);
+        return stockService.add(stockOutput);
     }
 }
