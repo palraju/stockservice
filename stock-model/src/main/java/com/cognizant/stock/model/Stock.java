@@ -7,13 +7,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Stock")
+@Table(name = "stock")
 @Getter
 @Setter
 public class Stock implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer stockId;
+	@Column(name = "id")
+	private Integer identifier;
 
 	private String scripName;
 
@@ -21,6 +22,7 @@ public class Stock implements Serializable {
 
 	private String scripInceptionDate;
 
-	private String companyName;
-
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "company_id", referencedColumnName = "id")
+	private Company company;
 }

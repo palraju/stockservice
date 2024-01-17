@@ -23,7 +23,6 @@ public class StockServiceTest extends AbstractServiceIntegrationTest{
     private Stock getDummyStock (String stockPrefix) {
         Stock stock = new Stock();
         stock.setScripCode(stockPrefix);
-        stock.setCompanyName(stockPrefix + "Compnay");
         stock.setScripInceptionDate("08/08/2022");
         stock.setScripName(stockPrefix + "Scrip");
         return stock;
@@ -33,8 +32,8 @@ public class StockServiceTest extends AbstractServiceIntegrationTest{
     void crudTesting () {
         Stock dummyScrip1 = getDummyStock("DUMMY1");
         dummyScrip1 = stockService.add(dummyScrip1);
-        Assert.isTrue(dummyScrip1 != null && dummyScrip1.getStockId() != null
-                && dummyScrip1.getStockId() > 0 , "Unable to insert Stock Details");
+        Assert.isTrue(dummyScrip1 != null && dummyScrip1.getIdentifier() != null
+                && dummyScrip1.getIdentifier() > 0 , "Unable to insert Stock Details");
         Collection<Stock> stockList = stockService.findAll();
         Assert.isTrue(stockList.parallelStream().anyMatch(x->x.getScripCode()
                 .equalsIgnoreCase("DUMMY1")), "Unable to find DUMMY1 scrip");

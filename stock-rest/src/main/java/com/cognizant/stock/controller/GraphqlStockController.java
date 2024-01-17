@@ -31,8 +31,8 @@ public class GraphqlStockController {
     }
 
     @QueryMapping
-    public Stock getScripById (@Argument int stockId) {
-        return stockService.findById(stockId);
+    public Stock getScripById (@Argument int identifier) {
+        return stockService.findById(identifier);
     }
 
     @MutationMapping

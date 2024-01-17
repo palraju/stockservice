@@ -1,13 +1,14 @@
 spring:
   datasource:
     password: Tulika@113311
-    url: jdbc:postgresql://localhost:5432/rajupal
+    url: jdbc:postgresql://localhost:5432/stockdb
     username: rajupal
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
+        enable_lazy_load_no_trans : true
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
         format_sql: true
     show-sql: true

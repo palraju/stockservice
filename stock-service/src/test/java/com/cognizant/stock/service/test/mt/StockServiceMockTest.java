@@ -27,7 +27,7 @@ public class StockServiceMockTest {
     private Stock getDummyStock (String stockPrefix) {
         Stock stock = new Stock();
         stock.setScripCode(stockPrefix);
-        stock.setCompanyName(stockPrefix + "Compnay");
+        //stock.setCompanyName(stockPrefix + "Compnay");
         stock.setScripInceptionDate("08/08/2022");
         stock.setScripName(stockPrefix + "Scrip");
         return stock;
@@ -38,7 +38,7 @@ public class StockServiceMockTest {
         Stock dummyScrip1 = getDummyStock("DUMMY1");
 
         Stock dummyScrip2 = getDummyStock("DUMMY1");
-        dummyScrip2.setStockId(1);
+       dummyScrip2.setIdentifier(1);
 
         lenient().when(stockRepository.save(any(Stock.class))).thenReturn(dummyScrip2);
         Stock dummyScripActual = stockServiceImpl.add(dummyScrip1);

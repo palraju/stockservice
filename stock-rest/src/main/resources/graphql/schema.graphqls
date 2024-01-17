@@ -1,12 +1,50 @@
 type Stock {
-    stockId: ID!,
+    identifier: ID!,
     scripName: String,
     scripCode: String,
     scripInceptionDate: String,
-    companyName: String
+    company: Company
 }
+
+type Company {
+    identifier: ID!,
+    name: String,
+    offices:[Office]
+}
+
+type Office {
+    identifier: ID!,
+    name: String,
+    address:Address
+}
+
+type Address {
+    identifier: ID!,
+    addressLine1: String,
+    addressLine2: String,
+    addressLine3: String,
+    zip: String,
+    state : State,
+    country : Country
+}
+
+type State {
+    identifier: ID!,
+    code: String,
+    name: String,
+    country:Country
+}
+
+type Country {
+    identifier: ID!,
+    iso2Code: String,
+    iso3Code: String,
+    shortName: String,
+    longName: String
+}
+
 type Query {
-    getScripById(stockId:ID!):Stock
+    getScripById(identifier:ID!):Stock
     getAllScrip:[Stock]
 }
 
@@ -20,3 +58,4 @@ input StockInput {
    scripInceptionDate: String,
    companyName: String
 }
+

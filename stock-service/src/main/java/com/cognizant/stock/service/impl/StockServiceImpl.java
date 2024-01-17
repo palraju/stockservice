@@ -20,11 +20,8 @@ public class StockServiceImpl implements StockService {
 
 	public Stock findById(Integer stockId) {
 		Optional<Stock> stockOptional = stockRepository.findById(stockId);
-		if(stockOptional.isPresent()) {
-			return stockOptional.get();
-		}
-		return new Stock ();
-	}
+        return stockOptional.orElseGet(Stock::new);
+    }
 
 	public Collection<Stock> findAll() {
 		return stockRepository.findAll();
@@ -32,20 +29,17 @@ public class StockServiceImpl implements StockService {
 
 	public Stock add (Stock stock) {
 		if(stock == null) {
-			new RuntimeException("Stock can not be empty");
+            throw new RuntimeException("Stock can not be empty");
 		}
-		Stock savedStock = stockRepository.save(stock);
-		return savedStock;
+        return stockRepository.save(stock);
 	}
 
 	@Override
 	public void remove(Stock stock) {
-		if(stock == null || stock.getStockId() == null) {
-			new RuntimeException("Stock or Stock Id is not provided");
+		if(stock == null || stock.getIdentifier() == null) {
+            throw new RuntimeException("Stock or Stock Id is not provided");
 		}
-		Optional<Stock> stockOptional = stockRepository.findById(stock.getStockId());
-		if(stockOptional.isPresent()) {
-			stockRepository.delete(stockOptional.get());
-		}
+		Optional<Stock> stockOptional = stockRepository.findById(stock.getIdentifier());
+        stockOptional.ifPresent(value -> stockRepository.delete(value));
 	}
 }
